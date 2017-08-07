@@ -1,0 +1,249 @@
+{
+  "variables": [],
+  "info": {
+    "name": "Jira Methods Collection",
+    "_postman_id": "9e3e5127-f1c6-71f7-2de1-2e6be031f06b",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "6c5ecbf9-a712-8420-45ec-1774d305f448",
+      "name": "http://172.16.21.108:8080/rest/api/2/issue/ST-398",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Body matches string\"] = responseBody.has(\"expand\");",
+              "",
+              "tests[\"Body is correct\"] = responseBody !== \"sample\";",
+              "",
+              "var jsonData = JSON.parse(responseBody);",
+              "tests[\"Your test name\"] = jsonData.id === \"11755\";",
+              "",
+              "tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+              "",
+              "tests[\"Response time is less than 2000ms\"] = responseTime < 2000;",
+              "",
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "",
+              "tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+              "",
+              "tests[\"Successful Get request\"] = responseCode.code === 200 || responseMessage.message === OK;",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://172.16.21.108:8080/rest/api/2/issue/ST-398",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic bmFnYXNla2hhci5jQGluZm90cmVlc29sdXRpb25zLmNvbTp0ZXN0OTk5Iw==",
+            "description": ""
+          }
+        ],
+        "body": {},
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "826704e2-fce5-e7e9-ac44-74a6725ab3d9",
+      "name": "http://172.16.21.108:8080/rest/api/2/group/user?groupname=Test1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Body matches string\"] = responseBody.has(\"name\");",
+              "",
+              "tests[\"Body is correct\"] = responseBody !== \"response_body_string\";",
+              "",
+              "var jsonData = JSON.parse(responseBody);",
+              "tests[\"Your test name\"] = jsonData.name === \"Test1\";",
+              "",
+              "tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+              "",
+              "tests[\"Response time is less than 2000ms\"] = responseTime < 2000;",
+              "",
+              "tests[\"Status code is 200\"] = responseCode.code === 201;",
+              "",
+              "tests[\"Status code name has string\"] = responseCode.name.has(\"Created\");",
+              "",
+              "tests[\"Successful POST request\"] = responseCode.code === 201 || responseMessage.message === Created;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": {
+          "raw": "http://172.16.21.108:8080/rest/api/2/group/user?groupname=Test1",
+          "protocol": "http",
+          "auth": {},
+          "host": [
+            "172",
+            "16",
+            "21",
+            "108"
+          ],
+          "port": "8080",
+          "path": [
+            "rest",
+            "api",
+            "2",
+            "group",
+            "user"
+          ],
+          "query": [
+            {
+              "key": "groupname",
+              "value": "Test1",
+              "equals": true,
+              "description": ""
+            }
+          ],
+          "variable": []
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic bmFnYXNla2hhci5jQGluZm90cmVlc29sdXRpb25zLmNvbTp0ZXN0OTk5Iw==",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"sainath.gaddam@infotreesolutions.com\"\r\n}"
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "0a4d9459-c6e1-60fb-ba79-60e2d54b1ae1",
+      "name": "http://172.16.21.108:8080/rest/api/2/group/user?groupname=Test1&username=sainath.gaddam@infotreesolutions.com",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Response time is less than 2000ms\"] = responseTime < 2000;",
+              "",
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "",
+              "tests[\"Successful Delete request\"] = responseCode.code === 200 || responseMessage.message === OK;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": {
+          "raw": "http://172.16.21.108:8080/rest/api/2/group/user?groupname=Test1&username=sainath.gaddam@infotreesolutions.com",
+          "protocol": "http",
+          "auth": {
+            "user": "172.16.21.108",
+            "password": "8080/rest/api/2/group/user?groupname=Test1&username=sainath.gaddam"
+          },
+          "host": [
+            "infotreesolutions",
+            "com"
+          ],
+          "path": [
+            ""
+          ],
+          "query": [
+            {
+              "key": "groupname",
+              "value": "Test1",
+              "equals": true,
+              "description": ""
+            },
+            {
+              "key": "username",
+              "value": "sainath.gaddam@infotreesolutions.com",
+              "equals": true,
+              "description": ""
+            }
+          ],
+          "variable": []
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic bmFnYXNla2hhci5jQGluZm90cmVlc29sdXRpb25zLmNvbTp0ZXN0OTk5Iw==",
+            "description": ""
+          }
+        ],
+        "body": {},
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "111a1cce-f4de-323d-3b0b-21530fb38ae9",
+      "name": "http://172.16.21.108:8080/rest/api/2/issue/ST-398/comment/10103",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Body matches string\"] = responseBody.has(\"self\");",
+              "",
+              "tests[\"Body is correct\"] = responseBody !== \"response_body_string\";",
+              "",
+              "var jsonData = JSON.parse(responseBody);",
+              "tests[\"Your test name\"] = jsonData.id === \"10103\";",
+              "",
+              "tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+              "",
+              "tests[\"Response time is less than 2000ms\"] = responseTime < 2000;",
+              "",
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "",
+              "tests[\"Status code name has string\"] = responseCode.name.has(\"OK\");",
+              "",
+              "tests[\"Successful PUT request\"] = responseCode.code === 200 || responseMessage.message === OK;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://172.16.21.108:8080/rest/api/2/issue/ST-398/comment/10103",
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic bmFnYXNla2hhci5jQGluZm90cmVlc29sdXRpb25zLmNvbTp0ZXN0OTk5Iw==",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"body\": \"New Comment is added for the Issue\",\r\n    \"visibility\": {\r\n        \"type\": \"role\",\r\n        \"value\": \"Administrators\"\r\n    }\r\n}\r\n"
+        },
+        "description": ""
+      },
+      "response": []
+    }
+  ]
+}
